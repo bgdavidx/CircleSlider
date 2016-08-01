@@ -114,6 +114,12 @@ public class CircleSlider: UIControl {
       fatalError("init(coder:) has not been implemented")
   }
   
+  override public func layoutSubviews() {
+    super.layoutSubviews()
+    
+    redraw()
+  }
+  
   override public func layoutSublayersOfLayer(layer: CALayer) {
     if self.trackLayer == nil {
       self.trackLayer = TrackLayer(bounds: CGRectInset(self.bounds, viewInset, viewInset), setting: self.createLayerSetting())
